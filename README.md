@@ -30,3 +30,13 @@ https://github.com/rstacruz/nprogress
 ```
 npm install --save nprogress
 ```
+
+## 4.axios
+
+https://github.com/axios/axios
+
+http://www.axios-js.com/
+
+```
+npm install axios
+```
