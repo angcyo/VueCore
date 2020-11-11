@@ -1,0 +1,35 @@
+/**
+ * Email:angcyo@126.com
+ * @author angcyo
+ * @date 2020/10/13
+ *
+ * http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+ * 已在index.js中初始化
+ */
+
+/**一行排满之后, 下一行继续*/
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-column-wrap {
+  @extend .flex-row-wrap;
+  flex-direction: column;
+}
+
+/**弹性布局, 可以实现2个项, 左边一个, 右边一个*/
+.flex-row-space-between {
+  //弹性布局
+  display: flex;
+  //主轴的方向, 多个项, 按照列的方式排列
+  flex-direction: row;
+  // 项在主轴上的对齐方式.  平分空隙, 但是首尾无间隙; space-around:首尾有间隙
+  justify-content: space-between
+}
+
+.flex-column-space-between {
+  @extend .flex-row-space-between;
+  flex-direction: column;
+}

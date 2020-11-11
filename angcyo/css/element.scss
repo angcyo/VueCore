@@ -1,0 +1,17 @@
+/**
+ * Email:angcyo@126.com
+ * @author angcyo
+ * @date 2020/10/13
+ * 饿了么组件,样式修改
+ * 已在index.js中初始化
+ */
+
+/**popconfirm弹出框, 文本字段填充*/
+.el-popconfirm__main {
+  padding: 1rem 0 !important;
+}
+
+/**文本输入域, 输入长度提示背景色*/
+.el-textarea .el-input__count {
+  background-color: transparent !important;
+}

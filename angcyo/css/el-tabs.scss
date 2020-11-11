@@ -1,0 +1,59 @@
+/**
+ * Email:angcyo@126.com
+ * @author angcyo
+ * @date 2020/10/12
+ * 统一修改el-tabs组件样式
+ * 在需要使用的地方: @import "../../angcyo/css/el-tabs";
+ */
+
+@import "app";
+
+$border-size: 0.12rem;
+
+/**去掉内容与tabs之间的间距*/
+.el-tabs__header {
+  margin: 0;
+}
+
+/*tabs头部样式*/
+.el-tabs__nav-scroll {
+  background-color: $MainDarkBgColor;
+  padding-top: 1rem;
+}
+
+/**tabs项的样式*/
+.el-tabs__nav {
+  $border-active-bg: white;
+  $border-style: $LineColor solid $border-size !important;
+  $border-style-active: $MainColor solid $border-size !important;
+  $border-style-none: none !important;
+  border: none !important;
+
+  > div {
+    margin-left: 1rem;
+    border-left: $border-style;
+    border-top: $border-style;
+    border-right: $border-style;
+    border-bottom: $border-style-none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: $MainDarkBg2Color;
+
+    &:hover {
+      border-left: $border-style-active;
+      border-top: $border-style-active;
+      border-right: $border-style-active;
+      color: $MainColor;
+    }
+  }
+
+  .is-active {
+    margin-left: 1rem;
+    border-left: $border-style-active;
+    border-top: $border-style-active;
+    border-right: $border-style-active;
+    border-bottom: $border-style-none;
+    color: $MainColor;
+    background-color: $border-active-bg;
+  }
+}

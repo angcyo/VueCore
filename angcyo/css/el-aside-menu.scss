@@ -1,0 +1,76 @@
+/**
+ * Email:angcyo@126.com
+ * @author angcyo
+ * @date 2020/10/12
+ * 主页菜单导航样式
+ *
+ * 在需要使用的地方主动导入即可生效:
+ * @import '../angcyo/css/el-aside-menu.scss';
+ */
+
+@import "app";
+
+/*去掉菜单导航的边框*/
+.el-menu {
+  border: 0;
+  height: 100%;
+}
+
+/*不加此样式, 折叠的时候, 不会有动画*/
+.el-menu:not(.el-menu--collapse) {
+  width: $NavMenuWidth
+}
+
+/*提示线的宽度*/
+$menu-line-width: 0.3rem;
+/*导航项的高度*/
+$menu-item-height: 4rem;
+
+/*左边菜单导航项未选中样式*/
+.el-menu-item {
+  height: $menu-item-height;
+  line-height: $menu-item-height;
+  font-size: 1rem;
+  border-left: $menu-line-width solid $NavMenuBgColor;
+  transition: all 0.3s ease-out;
+
+  i {
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  /*右边线*/
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: $menu-line-width;
+    height: 100%;
+    transform: scaleY(0);
+    background: $MainColor;
+    transition: all 0.3s ease-out;
+  }
+
+  /*不选择is-active状态的导航项*/
+  &:hover:not(.is-active) {
+    background: $NavMenuActiveBgColor !important;
+    border-left: $menu-line-width solid $NavMenuActiveBgColor;
+
+    /*右边线动画*/
+    &:after {
+      transform: scaleY(1);
+    }
+  }
+}
+
+/*菜单导航项选中后的样式*/
+.is-active {
+  background: $NavMenuActiveBgColor !important;
+  border-left: $menu-line-width solid $MainColor !important;
+  color: white;
+
+  i {
+    color: $MainColor !important
+  }
+}

@@ -1,0 +1,75 @@
+/**
+ * Email:angcyo@126.com
+ * @author angcyo
+ * @date 2020/10/11
+ *
+ * 已在index.js中初始化
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// 撑满整个浏览器窗口, 为100%这样的属性值提供支持
+html, body, #app, .main {
+  @extend .mwh;
+}
+
+.mw {
+  width: 100%;
+}
+
+.mh {
+  height: 100%;
+}
+
+.mwh {
+  @extend .mw;
+  @extend .mh;
+}
+
+.ml {
+  margin-left: 1rem;
+}
+
+/*上偏移*/
+.mt {
+  margin-top: 1rem;
+}
+
+.mr {
+  margin-right: 1rem;
+}
+
+.mb {
+  margin-bottom: 1rem;
+}
+
+.pl {
+  padding-left: 1rem;
+}
+
+.pt {
+  padding-top: 1rem;
+}
+
+.pr {
+  padding-right: 1rem;
+}
+
+.pb {
+  padding-bottom: 1rem;
+}
+
+/*警告提示段落*/
+.waring {
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0.5rem 1rem;
+  background-color: #fff6f7;
+  border-radius: 0.25rem;
+  border-left: 0.35rem solid #fe6c6f;
+}

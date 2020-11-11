@@ -1,0 +1,32 @@
+/**
+ * Email:angcyo@126.com
+ * @author angcyo
+ * @date 2020/10/13
+ * 一些文本样式
+ * 已在index.js中初始化
+ */
+
+@import "app";
+
+.text-line-height {
+  line-height: 1.6rem;
+}
+
+.article {
+  @extend .text-line-height;
+}
+
+.theme-text {
+  color: $MainColor;
+  font-size: 1rem;
+}
+
+.main-text {
+  color: $MainTextColor;
+  font-size: 1rem;
+}
+
+.main-dark-text {
+  color: $MainDarkTextColor;
+  font-size: 0.8rem;
+}

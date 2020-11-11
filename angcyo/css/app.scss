@@ -1,0 +1,74 @@
+/**
+ * Email:angcyo@126.com
+ * @author angcyo
+ * @date 2020/10/12
+
+ 导入之后,即可使用变量
+ @import "app.scss";
+
+ * 已在index.js中初始化
+ */
+
+/*-----------------------------------华丽的分割线------------------------------------*/
+
+/**主要的文本颜色*/
+$MainTextColor: #2c3e50;
+$MainDarkTextColor: #666666;
+
+#app {
+  color: $MainTextColor;
+}
+
+/*主背景色*/
+$MainBgColor: #FFFFFF;
+$MainDarkBgColor: #F6F8FC;
+$MainDarkBg2Color: #F8F8F9;
+
+
+/*主色调*/
+$MainColor: #2D52F2;
+
+$LineColor: #E9EBEC;
+
+/*-----------------------------------华丽的分割线------------------------------------*/
+
+/*导航菜单背景色*/
+$NavMenuBgColor: #152032;
+$NavMenuActiveBgColor: #040B16;
+/*导航菜单文本颜色*/
+$NavMenuTextColor: #7E8791;
+/*导航菜单活跃文本颜色*/
+$NavMenuActiveTextColor: #FFFFFF;
+
+/*导航菜单展开时的宽度*/
+$NavMenuWidth: 12rem;
+
+/*导航头部的高度, 同时也是主体头部的高度*/
+$NavHeaderHeight: 4rem;
+
+/*-----------------------------------华丽的分割线------------------------------------*/
+
+.ContentWrap {
+  height: calc(100% - #{$NavHeaderHeight});
+}
+
+/*-----------------------------------华丽的分割线------------------------------------*/
+
+#nprogress .bar {
+  /*nprogress 自定义颜色*/
+  background: #409EFF !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #409EFF !important;
+  border-left-color: #409EFF !important;
+}
+
+/*-----------------------------------华丽的分割线------------------------------------*/
+
+:export {
+  NavMenuBgColor: $NavMenuBgColor;
+  NavMenuTextColor: $NavMenuTextColor;
+  NavMenuActiveTextColor: $NavMenuActiveTextColor;
+  NavHeaderHeight: $NavHeaderHeight;
+}

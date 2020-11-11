@@ -1,0 +1,18 @@
+/**
+2020-10-12
+Vue transition 过渡动画
+https://cn.vuejs.org/v2/guide/transitions.html
+
+在需要使用的地方: @import "../../angcyo/css/transition";
+
+*/
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+
+/* .fade-leave-active below version 2.1.8 */
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
