@@ -113,6 +113,20 @@ Util.copyFields = function (obj, fromFields, toFields) {
 
 //<editor-fold desc="基础操作">
 
+/**从参数中, 选择一个不是undefined的参数*/
+Util.one = function () {
+  if (arguments && arguments.length > 0) {
+    for (let i = 0; i < arguments.length; i++) {
+      let arg = arguments[i]
+      if (typeof arg === 'undefined') {
+        continue
+      }
+      return arg
+    }
+  }
+  return undefined
+}
+
 //</editor-fold desc="基础操作">
 
 //<editor-fold desc="数组扩展操作">
