@@ -17,6 +17,7 @@ import Vue from 'vue'
 Vue.prototype.env = process.env.NODE_ENV
 /*是否是调试环境*/
 const isDebug = process.env.NODE_ENV === 'development'
+Vue.isDebug = isDebug
 Vue.prototype.isDebug = isDebug
 /*开发环境的log输出*/
 Vue.prototype.log = (log) => {

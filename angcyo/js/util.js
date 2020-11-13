@@ -14,6 +14,17 @@ Util.install = function (Vue, options) {
   Vue.prototype.$util = Util
 }
 
+/**生成uuid*/
+Util.uuid = function () {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+    let r = Math.random() * 16 | 0, v = c === "x" ? r : (r & 0x3 | 0x8)
+    return v.toString(16)
+  })
+}
+
+Util.toJson = (data) => JSON.stringify(data)
+Util.fromJson = (json) => JSON.parse(json)
+
 /**判断是否是PC浏览器*/
 Util.isPc = function () {
   const userAgentInfo = navigator.userAgent
@@ -125,6 +136,10 @@ Util.one = function () {
     }
   }
   return undefined
+}
+
+Util.isNullOrEmpty = function (str) {
+  return !str || str.length <= 0
 }
 
 //</editor-fold desc="基础操作">
