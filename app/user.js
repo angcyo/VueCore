@@ -36,4 +36,8 @@ User.getToken = function () {
   }
 }
 
+User.removeToken = function () {
+  localStorage.removeItem(TOKEN_KEY)
+}
+
 export default User
