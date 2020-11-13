@@ -55,7 +55,7 @@ _axios.interceptors.response.use((response) => {
 function RAxios() {
 }
 
-export let rAxios = new RAxios()
+export let api = new RAxios()
 
 /**http://www.axios-js.com/zh-cn/docs/#axios-request-config*/
 RAxios.prototype.request = function (url, method, body, config, callback) {
@@ -127,7 +127,7 @@ RAxios.prototype.post = function (url, body, config, callback) {
 
 RAxios.install = function (Vue, options) {
   Vue.prototype.$axios = _axios
-  Vue.prototype.$api = rAxios
+  Vue.prototype.$api = api
 }
 
 Vue.use(RAxios)
