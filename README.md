@@ -40,3 +40,13 @@ http://www.axios-js.com/
 ```
 npm install axios
 ```
+
+## 5.lodash
+
+https://www.lodashjs.com/
+
+https://github.com/lodash/lodash
+
+```
+npm i --save lodash
+```

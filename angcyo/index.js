@@ -9,6 +9,7 @@ import './js/string'
 
 import Util from "./js/util"
 import Time from './js/time'
+import Lodash from './third/lodash'
 
 import Vue from 'vue'
 
@@ -31,3 +32,4 @@ Vue.prototype.log = (log) => {
 
 Vue.use(Util)
 Vue.use(Time)
+Vue.use(Lodash)
