@@ -1,0 +1,15 @@
+/**
+2020-11-17
+饿了么 form-item 表单样式, label 上下结构
+
+在需要使用的地方: @import "../../VueCore/angcyo/css/el-form-item-vertical.scss";
+*/
+
+.el-form-item {
+  display: inline-flex;
+  flex-direction: column;
+
+  ::v-deep label {
+    text-align: left;
+  }
+}
