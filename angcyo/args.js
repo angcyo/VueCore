@@ -50,4 +50,10 @@ Args.str = function argString(_arguments) {
   })
 }
 
+Args.page = function argPage(_arguments) {
+  return Args.args(_arguments, (arg) => {
+    return Util.isObject(arg) && arg.requestPage !== undefined && arg.requestSize !== undefined
+  })
+}
+
 export default Args
