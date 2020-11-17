@@ -113,14 +113,25 @@ RAxios.prototype.post = function (url, body, config, callback) {
           })
         }
       } else if (err) {
-        callback(undefined, {
-          ...err.response.data,
-          code: err.response.status,
-          msg: `${err.response.status} ` + err.response.data.error || err.response.data.message || '请求失败'
-        })
+        let res = err.response
+        if (res) {
+          //http 异常
+          callback(undefined, {
+            ...res.data,
+            code: res.status,
+            msg: `${res.status} ` + res.data.error || res.data.message || '请求失败'
+          })
+        } else {
+          //其他代码异常
+          callback(undefined, {
+            code: 500,
+            msg: err.message || err || '内部异常'
+          })
+          console.log(err)
+        }
       }
     } else {
-      console.log("no callback.")
+      console.log("RAxios post no callback.")
     }
   })
 }
