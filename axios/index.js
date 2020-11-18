@@ -86,6 +86,7 @@ RAxios.prototype.request = function (url, method, params, body, config, callback
   })
 }
 
+/**所有参数必须指定*/
 RAxios.prototype.api = function (url, method, params, body, config, callback) {
   this.request(url, method, params, body, config, (res, err) => {
     if (callback) {
@@ -122,7 +123,7 @@ RAxios.prototype.api = function (url, method, params, body, config, callback) {
   })
 }
 
-/**快速发送一个post请求
+/**快速发送一个post请求, 动态匹配参数类型
  * [url] 必须
  * [body] 可选
  * [config] 可选

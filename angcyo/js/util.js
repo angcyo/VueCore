@@ -25,6 +25,19 @@ Util.uuid = function () {
 Util.toJson = (data) => JSON.stringify(data)
 Util.fromJson = (json) => JSON.parse(json)
 
+/**获取一个错误对象*/
+Util.error = (msg) => {
+  let error = new Error(msg || '调用栈 ↓')
+  if (!error.stack) {
+    try {
+      throw error
+    } catch (err) {
+      error = err
+    }
+  }
+  return error
+}
+
 /**判断是否是PC浏览器*/
 Util.isPc = function () {
   const userAgentInfo = navigator.userAgent
