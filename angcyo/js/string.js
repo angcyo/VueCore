@@ -54,10 +54,12 @@ String.prototype.contains = function (s) {
   return this.indexOf(s) !== -1
 }
 
+/**在字符串前面插入多少个占位字符*/
 String.prototype.prefixString = function (length, placeholder = '0') {
   return (Array(length).join(placeholder) + this).slice(-length)
 }
 
+/**重复字符多少次*/
 String.prototype.repeat = function (count = 1) {
   return Array(count + 1).join(this)
 }
