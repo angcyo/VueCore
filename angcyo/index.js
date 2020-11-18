@@ -21,9 +21,9 @@ const isDebug = process.env.NODE_ENV === 'development'
 Vue.isDebug = isDebug
 Vue.prototype.isDebug = isDebug
 /*开发环境的log输出*/
-Vue.prototype.log = (log) => {
+Vue.prototype.log = function () {
   if (isDebug) {
-    console.log(log)
+    console.log(...arguments)
   }
 }
 /*-----------debug end----------*/

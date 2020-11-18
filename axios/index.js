@@ -58,7 +58,7 @@ function RAxios() {
 export let Api = new RAxios()
 
 /**http://www.axios-js.com/zh-cn/docs/#axios-request-config*/
-RAxios.prototype.request = function (url, method, body, config, callback) {
+RAxios.prototype.request = function (url, method, params, body, config, callback) {
   const cancelToken = Axios.CancelToken
   const cancelTokenSource = cancelToken.source()
 
@@ -66,6 +66,7 @@ RAxios.prototype.request = function (url, method, body, config, callback) {
     url: url,
     baseURL: Vue.baseUrl || _axios.defaults.baseURL,
     method: method || 'post',
+    params: params,
     data: body,
     cancelToken: cancelTokenSource.token,
     ...config,
@@ -85,23 +86,8 @@ RAxios.prototype.request = function (url, method, body, config, callback) {
   })
 }
 
-/**快速发送一个post请求
- * [url] 必须
- * [body] 可选
- * [config] 可选
- * [callback] 必须*/
-RAxios.prototype.post = function (url, body, config, callback) {
-  if (arguments.length === 2) {
-    body = undefined
-    config = undefined
-  }
-  if (arguments.length === 2) {
-    config = undefined
-  }
-  url = Args.str(arguments)
-  callback = Args.fun(arguments)
-
-  this.request(url, 'post', body, config, (res, err) => {
+RAxios.prototype.api = function (url, method, params, body, config, callback) {
+  this.request(url, method, params, body, config, (res, err) => {
     if (callback) {
       if (res) {
         if (res.data.code >= 200 && res.data.code < 300) {
@@ -109,7 +95,7 @@ RAxios.prototype.post = function (url, body, config, callback) {
         } else {
           callback(undefined, {
             ...res.data,
-            msg: `${res.data.code} ` + res.data.msg
+            msg: `[${res.data.code}]` + res.data.msg
           })
         }
       } else if (err) {
@@ -119,7 +105,7 @@ RAxios.prototype.post = function (url, body, config, callback) {
           callback(undefined, {
             ...res.data,
             code: res.status,
-            msg: `${res.status} ` + res.data.error || res.data.message || '请求失败'
+            msg: `[${res.status}]` + res.data.error || res.data.message || '请求失败'
           })
         } else {
           //其他代码异常
@@ -131,9 +117,42 @@ RAxios.prototype.post = function (url, body, config, callback) {
         }
       }
     } else {
-      console.log("RAxios post no callback.")
+      console.log("RAxios api no callback.")
     }
   })
+}
+
+/**快速发送一个post请求
+ * [url] 必须
+ * [body] 可选
+ * [config] 可选
+ * [callback] 必须*/
+RAxios.prototype.post = function (url, body, config, callback) {
+  if (arguments.length === 2) {
+    body = undefined
+    config = undefined
+  }
+  if (arguments.length === 3) {
+    config = undefined
+  }
+  url = Args.str(arguments)
+  callback = Args.fun(arguments)
+
+  this.api(url, 'post', undefined, body, config, callback)
+}
+
+RAxios.prototype.get = function (url, params, config, callback) {
+  if (arguments.length === 2) {
+    params = undefined
+    config = undefined
+  }
+  if (arguments.length === 3) {
+    config = undefined
+  }
+  url = Args.str(arguments)
+  callback = Args.fun(arguments)
+
+  this.api(url, 'get', params, undefined, config, callback)
 }
 
 RAxios.install = function (Vue, options) {
