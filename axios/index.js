@@ -84,11 +84,14 @@ RAxios.prototype.request = function (url, method, params, body, config, callback
       callback(undefined, error)
     }
   })
+
+  //cancelTokenSource.cancel("xxx")
+  return cancelTokenSource
 }
 
 /**所有参数必须指定*/
 RAxios.prototype.api = function (url, method, params, body, config, callback) {
-  this.request(url, method, params, body, config, (res, err) => {
+  return this.request(url, method, params, body, config, (res, err) => {
     if (callback) {
       if (res) {
         if (res.data.code >= 200 && res.data.code < 300) {
@@ -139,7 +142,7 @@ RAxios.prototype.post = function (url, body, config, callback) {
   url = Args.str(arguments)
   callback = Args.fun(arguments)
 
-  this.api(url, 'post', undefined, body, config, callback)
+  return this.api(url, 'post', undefined, body, config, callback)
 }
 
 RAxios.prototype.get = function (url, params, config, callback) {
@@ -153,7 +156,7 @@ RAxios.prototype.get = function (url, params, config, callback) {
   url = Args.str(arguments)
   callback = Args.fun(arguments)
 
-  this.api(url, 'get', params, undefined, config, callback)
+  return this.api(url, 'get', params, undefined, config, callback)
 }
 
 RAxios.install = function (Vue, options) {
