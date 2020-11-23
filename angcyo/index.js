@@ -18,10 +18,7 @@ import Vue from 'vue'
 Vue.prototype.env = process.env.NODE_ENV
 /*是否是调试环境*/
 const isDebug = process.env.NODE_ENV === 'development'
-Vue.isDebug = isDebug
-Vue.prototype.isDebug = isDebug
-/*开发环境的log输出*/
-Vue.prototype.log = function log() {
+Vue.log = function log() {
   if (isDebug) {
     let stack = Util.error().stack
     let lines = stack.toString().split(/\r\n|\n/)
@@ -30,6 +27,10 @@ Vue.prototype.log = function log() {
     console.log(...arguments, '←\n\n→', stack)
   }
 }
+Vue.isDebug = isDebug
+Vue.prototype.isDebug = isDebug
+/*开发环境的log输出*/
+Vue.prototype.log = Vue.log
 /*-----------debug end----------*/
 
 /*-----------使用插件----------*/

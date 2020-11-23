@@ -42,11 +42,11 @@ _axios.interceptors.request.use((config) => {
 // 添加响应拦截器
 _axios.interceptors.response.use((response) => {
   // 对响应数据做点什么
-  //console.log(response)
+  //Vue.log(response)
   return response
 }, (error) => {
   // 对响应错误做点什么
-  if (error.response.status === 401) {
+  if (error.response && error.response.status === 401) {
     localStorage.removeItem(TOKEN_KEY)
   }
   return Promise.reject(error)
@@ -71,15 +71,15 @@ RAxios.prototype.request = function (url, method, params, body, config, callback
     cancelToken: cancelTokenSource.token,
     ...config,
   }).then(function (response) {
-    //console.log(response)
+    //Vue.log(response)
     if (Util.isFunction(callback)) {
       callback(response, undefined)
     }
   }).catch(function (error) {
     //error.response.status
     //error.response.data
-    //console.log(Util.one(error.response.data.error, error.response.data.message, error.message))
-    //console.log(error)
+    //Vue.log(Util.one(error.response.data.error, error.response.data.message, error.message))
+    //Vue.log(error)
     if (Util.isFunction(callback)) {
       callback(undefined, error)
     }
@@ -117,11 +117,11 @@ RAxios.prototype.api = function (url, method, params, body, config, callback) {
             code: 500,
             msg: err.message || err || '内部异常'
           })
-          console.log(err)
+          Vue.log(err)
         }
       }
     } else {
-      console.log("RAxios api no callback.")
+      Vue.log("RAxios api no callback.")
     }
   })
 }
