@@ -50,6 +50,12 @@ Args.str = function argString(_arguments) {
   })
 }
 
+Args.num = function argNumber(_arguments) {
+  return Args.args(_arguments, (arg) => {
+    return Util.isNumber(arg)
+  })
+}
+
 Args.page = function argPage(_arguments) {
   return Args.args(_arguments, (arg) => {
     return Util.isObject(arg) && arg.requestPage !== undefined && arg.requestSize !== undefined

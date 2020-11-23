@@ -12,6 +12,7 @@ import Time from './js/time'
 import Lodash from './third/lodash'
 
 import Vue from 'vue'
+import Args from "@/VueCore/angcyo/args"
 
 /*-----------debug start----------*/
 /*开发环境*/
@@ -32,6 +33,22 @@ Vue.prototype.isDebug = isDebug
 /*开发环境的log输出*/
 Vue.prototype.log = Vue.log
 /*-----------debug end----------*/
+
+/*-----------lodash end----------*/
+
+/**防抖动*/
+Vue.prototype.debounce = function (wait, action) {
+  action = Args.fun(arguments)
+  wait = Args.num(arguments) || 600
+  this._debounce ? this._debounce.cancel() : undefined
+  this._debounce = this._.debounce(() => {
+    action && action()
+  }, wait)
+  this._debounce()
+}
+
+/*-----------lodash end----------*/
+
 
 /*-----------使用插件----------*/
 
