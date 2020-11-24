@@ -33,6 +33,7 @@ export let _axios = Axios.create({
 _axios.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
   config.headers.Authorization = localStorage.getItem(TOKEN_KEY)
+  config.headers.uuid = Vue.uuid
   return config
 }, (error) => {
   // 对请求错误做些什么

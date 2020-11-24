@@ -34,7 +34,7 @@ Vue.prototype.isDebug = isDebug
 Vue.prototype.log = Vue.log
 /*-----------debug end----------*/
 
-/*-----------lodash end----------*/
+/*-----------lodash start----------*/
 
 /**防抖动*/
 Vue.prototype.debounce = function (wait, action) {
@@ -49,6 +49,7 @@ Vue.prototype.debounce = function (wait, action) {
 
 /*-----------lodash end----------*/
 
+Vue.uuid = Util.uuid()
 
 /*-----------使用插件----------*/
 
