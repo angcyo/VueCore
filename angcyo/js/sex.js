@@ -5,19 +5,21 @@
  * 性别定义
  */
 
-const Sex = [
-  {
-    value: -1,
-    label: '保密'
-  },
-  {
-    value: 1,
-    label: '男'
-  },
-  {
-    value: 0,
-    label: '女'
-  }
-]
+export const Man = {
+  value: 1,
+  label: '男'
+}
+
+export const Woman = {
+  value: 0,
+  label: '女'
+}
+
+export const Secret = {
+  value: -1,
+  label: '保密'
+}
+
+const Sex = [Secret, Man, Woman]
 
 export default [...Sex]

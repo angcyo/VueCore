@@ -95,12 +95,20 @@ RAxios.prototype.api = function (url, method, params, body, config, callback) {
   return this.request(url, method, params, body, config, (res, err) => {
     if (callback) {
       if (res) {
-        if (res.data.code >= 200 && res.data.code < 300) {
-          callback(res.data, undefined)
+        if (res.data) {
+          if (res.data.code >= 200 && res.data.code < 300) {
+            callback(res.data, undefined)
+          } else {
+            callback(undefined, {
+              ...res.data,
+              msg: `[${res.data.code}]` + res.data.msg
+            })
+          }
         } else {
+          Vue.log(res)
           callback(undefined, {
-            ...res.data,
-            msg: `[${res.data.code}]` + res.data.msg
+            ...res,
+            msg: `数据异常`
           })
         }
       } else if (err) {
