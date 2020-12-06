@@ -9,6 +9,7 @@
 @import "app";
 
 $border-size: 0.12rem;
+$translate-border-size: 0.2rem;
 
 .app-tabs {
 
@@ -25,13 +26,18 @@ $border-size: 0.12rem;
 
   /**tabs项的样式*/
   ::v-deep .el-tabs__nav {
+    min-width: 100%;
     $border-active-bg: white;
     $border-style: $LineColor solid $border-size !important;
+    $border-style-bg: $border-active-bg solid $border-size !important;
     $border-style-active: $MainColor solid $border-size !important;
     $border-style-none: none !important;
-    border: none !important;
+    border-left: none !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: $border-style-active;
 
-    > div {
+    > .el-tabs__item {
       margin-left: 1rem;
       border-left: $border-style;
       border-top: $border-style;
@@ -40,12 +46,14 @@ $border-size: 0.12rem;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       background-color: $MainDarkBg2Color;
+      transition: all 0.3s ease-out;
 
       &:hover {
         border-left: $border-style-active;
         border-top: $border-style-active;
         border-right: $border-style-active;
         color: $MainColor;
+        transform: translateY($translate-border-size);
       }
     }
 
@@ -54,9 +62,10 @@ $border-size: 0.12rem;
       border-left: $border-style-active;
       border-top: $border-style-active;
       border-right: $border-style-active;
-      border-bottom: $border-style-none;
+      border-bottom: $border-style-bg;
       color: $MainColor;
       background-color: $border-active-bg;
+      transform: translateY($translate-border-size);
     }
   }
 }
