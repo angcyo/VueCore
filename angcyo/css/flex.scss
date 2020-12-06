@@ -75,3 +75,8 @@
   align-items: center;
   //  justify-items: center;
 }
+
+/**靠列的顶部对齐*/
+.flex-start-column {
+  align-items: start;
+}
