@@ -10,50 +10,53 @@
 
 $border-size: 0.12rem;
 
-/**去掉内容与tabs之间的间距*/
-.el-tabs__header {
-  margin: 0;
-}
+.app-tabs {
 
-/*tabs头部样式*/
-.el-tabs__nav-scroll {
-  background-color: $MainDarkBgColor;
-  padding-top: 1rem;
-}
+  /**去掉内容与tabs之间的间距*/
+  ::v-deep .el-tabs__header {
+    margin: 0;
+  }
 
-/**tabs项的样式*/
-.el-tabs__nav {
-  $border-active-bg: white;
-  $border-style: $LineColor solid $border-size !important;
-  $border-style-active: $MainColor solid $border-size !important;
-  $border-style-none: none !important;
-  border: none !important;
+  /*tabs头部样式*/
+  ::v-deep .el-tabs__nav-scroll {
+    background-color: $MainDarkBgColor;
+    padding-top: 1rem;
+  }
 
-  > div {
-    margin-left: 1rem;
-    border-left: $border-style;
-    border-top: $border-style;
-    border-right: $border-style;
-    border-bottom: $border-style-none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: $MainDarkBg2Color;
+  /**tabs项的样式*/
+  ::v-deep .el-tabs__nav {
+    $border-active-bg: white;
+    $border-style: $LineColor solid $border-size !important;
+    $border-style-active: $MainColor solid $border-size !important;
+    $border-style-none: none !important;
+    border: none !important;
 
-    &:hover {
+    > div {
+      margin-left: 1rem;
+      border-left: $border-style;
+      border-top: $border-style;
+      border-right: $border-style;
+      border-bottom: $border-style-none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background-color: $MainDarkBg2Color;
+
+      &:hover {
+        border-left: $border-style-active;
+        border-top: $border-style-active;
+        border-right: $border-style-active;
+        color: $MainColor;
+      }
+    }
+
+    .is-active {
+      margin-left: 1rem;
       border-left: $border-style-active;
       border-top: $border-style-active;
       border-right: $border-style-active;
+      border-bottom: $border-style-none;
       color: $MainColor;
+      background-color: $border-active-bg;
     }
-  }
-
-  .is-active {
-    margin-left: 1rem;
-    border-left: $border-style-active;
-    border-top: $border-style-active;
-    border-right: $border-style-active;
-    border-bottom: $border-style-none;
-    color: $MainColor;
-    background-color: $border-active-bg;
   }
 }

@@ -7,16 +7,27 @@
  * 已在index.js中初始化
  */
 
-/**一行排满之后, 下一行继续*/
-.flex-row-wrap {
+/**横向的flex布局*/
+.flex-row {
   display: flex;
   flex-direction: row;
+}
+
+/**竖向的flex布局*/
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/**一行排满之后, 下一行继续*/
+.flex-row-wrap {
+  @extend .flex-row;
   flex-wrap: wrap;
 }
 
 .flex-column-wrap {
-  @extend .flex-row-wrap;
-  flex-direction: column;
+  @extend .flex-column;
+  flex-wrap: wrap;
 }
 
 /**弹性布局, 可以实现2个项, 左边一个, 右边一个*/
@@ -32,4 +43,35 @@
 .flex-column-space-between {
   @extend .flex-row-space-between;
   flex-direction: column;
+}
+
+.flex-row-space-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around
+}
+
+.flex-column-space-around {
+  @extend .flex-row-space-around;
+  flex-direction: column;
+}
+
+// --------------flex item-------------------//
+
+/**平分剩余空间*/
+.flex-item-avg {
+  flex-grow: 1;
+}
+
+// ----------------对齐-------------------//
+
+/**在行中居中*/
+.flex-center-row {
+  justify-content: center;
+}
+
+/**在列中居中*/
+.flex-center-column {
+  align-items: center;
+  //  justify-items: center;
 }
