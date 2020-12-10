@@ -46,6 +46,15 @@ html, body, #app, .main {
   margin-bottom: 1rem;
 }
 
+.m {
+  @extend .ml;
+  @extend .mt;
+  @extend .mr;
+  @extend .mb;
+}
+
+/**---------------------------------------*/
+
 .pl {
   padding-left: 1rem;
 }
@@ -60,6 +69,13 @@ html, body, #app, .main {
 
 .pb {
   padding-bottom: 1rem;
+}
+
+.p {
+  @extend .pl;
+  @extend .pt;
+  @extend .pr;
+  @extend .pb;
 }
 
 /*警告提示段落*/
