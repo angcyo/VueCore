@@ -2,6 +2,8 @@
 
 *2020-10-12*
 
+[Vue2](https://v2.cn.vuejs.org/)
+
 [TOC]
 
 # 必备插件列表
@@ -50,3 +52,8 @@ https://github.com/lodash/lodash
 ```
 npm i --save lodash
 ```
+
+# Other
+
+- [VueCore](https://github.com/angcyo/VueCore)
+- [Vue3Core](https://github.com/angcyo/Vue3Core)
